@@ -68,8 +68,16 @@ namespace SnakeAndLadder
                 }
                 Console.WriteLine("Current position of player is :" + position1);
 
+                //to get exact winning positio of player
+                if (position1 > 100)
+                {
+                    position1 -= dieRoll;
+                    Console.WriteLine("Previous Position:" + position1);
+                   
+                }
+
             }
-            Console.WriteLine("Player position1 reaches 100 and he wins at :" + position1);
+            Console.WriteLine("Player position1 reaches 100 and the exact winning position is :" + position1);
 
         }
     }
