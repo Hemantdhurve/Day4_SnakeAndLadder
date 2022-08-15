@@ -22,48 +22,54 @@ namespace SnakeAndLadder
 
             Console.WriteLine("Initial Position of Player 1 is :" + position1 );
 
-            //Random function to roll die 1 to 6
-            Random random = new Random();
-            dieRoll = random.Next(1,7);                 //range taken from 1 to 7 due to die have 1 to 6 numbers
 
-            Console.WriteLine("Die Roll :" + dieRoll);
-            position1=dieRoll;
-            Console.WriteLine("Position1 of player after dieRoll is :" + position1);
-            
-            int options=random.Next(0,3);
-            Console.WriteLine("After getting Random Option is :" + options);
-
-            //using switch case to check options
-
-            switch (options)
+            while (position1<100)
             {
-                case Ladder:
-                    Console.WriteLine("In option we getting Ladder");
-                    position1+=dieRoll;
-                    Console.WriteLine("New position1 after getting Ladder :" + position1);
-                    break;
+                //Random function to roll die 1 to 6
+                Random random = new Random();
+                dieRoll = random.Next(1, 7);                 //range taken from 1 to 7 due to die have 1 to 6 numbers
 
-                case Snake:
-                    Console.WriteLine("In option player bit by snake");
-                    position1-=dieRoll;
-                    Console.WriteLine("\"New position1 after snake bit :" + position1);
-                    
-                    //check if position is zero after snake bit then given position zero
-                    
-                    if(position1 <0)
-                        position1 = 0;
-                    Console.WriteLine("Player position1 after snake bit need to start from initial position : " + position1);
-                    break ;
+                //Console.WriteLine("Die Roll :" + dieRoll);
+                //position1 = dieRoll;
+                //Console.WriteLine("Position1 of player after dieRoll is :" + position1);
 
-                default:
-                    Console.WriteLine("In option we got No play :" + position1);
-                   
-                    break;
+                int options = random.Next(0, 3);
+                //Console.WriteLine("After getting Random Option is :" + options);
 
+                //using switch case to check options
+
+                switch (options)
+                {
+                    case Ladder:
+                        Console.WriteLine("In option we getting Ladder");
+                        position1 += dieRoll;
+                        Console.WriteLine("New position1 after getting Ladder :" + position1);
+                        if (position1 > 100)
+                            position1 = 100;
+         
+                        break;
+
+                    case Snake:
+                        Console.WriteLine("In option player bit by snake");
+                        position1 -= dieRoll;
+                        Console.WriteLine("\"New position1 after snake bit :" + position1);
+
+                        //check if position is zero after snake bit then given position zero
+
+                        if (position1 < 0)
+                            position1 = 0;
+                        Console.WriteLine("Player position1 after snake bit need to start from previous position : " + position1);
+                        break;
+
+                    default:
+                        Console.WriteLine("In option we got No play :" + position1);
+
+                        break;
+                }
+                Console.WriteLine("Current position of player is :" + position1);
 
             }
-
-
+            Console.WriteLine("Player position1 reaches 100 and he wins at :" + position1);
 
         }
     }
