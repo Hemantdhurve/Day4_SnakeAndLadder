@@ -19,6 +19,7 @@ namespace SnakeAndLadder
             //variables
             int position1 = 0;
             int dieRoll=0;
+            int dicecount = 0;
 
             Console.WriteLine("Initial Position of Player 1 is :" + position1 );
 
@@ -28,7 +29,7 @@ namespace SnakeAndLadder
                 //Random function to roll die 1 to 6
                 Random random = new Random();
                 dieRoll = random.Next(1, 7);                 //range taken from 1 to 7 due to die have 1 to 6 numbers
-
+                dicecount++;
                 //Console.WriteLine("Die Roll :" + dieRoll);
                 //position1 = dieRoll;
                 //Console.WriteLine("Position1 of player after dieRoll is :" + position1);
@@ -78,6 +79,8 @@ namespace SnakeAndLadder
 
             }
             Console.WriteLine("Player position1 reaches 100 and the exact winning position is :" + position1);
+
+            Console.WriteLine("player wins with a dice count of :" + dicecount);
 
         }
     }
